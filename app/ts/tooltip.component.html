@@ -1,0 +1,10 @@
+<h1>{{title}}</h1>
+<input #newSp
+(keyup.enter)="addEntry(newSp.value); newSp.value=''" >
+<button (click)="addEntry(newSp.value)">Add</button>
+<ul>
+    <li *ngFor="let sp_ele of sp_elements">
+        {{sp_ele}}
+    </li>
+</ul>
+<textarea rows="4" cols="50" readonly>{{generateSpintax()}}</textarea>
