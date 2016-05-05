@@ -1,0 +1,25 @@
+<h3>Spintax Component</h3>
+
+<textarea 
+#sp_textarea
+cols="100" rows="10"
+[value]="tempSpintax"></textarea>
+
+<button (click)="setSpintax(sp_textarea.value)" class="btn btn-primary">
+    Try me
+</button>
+
+
+<div class="panel panel-default">
+  <div class="panel-body">
+    {{getFormattedText()}}
+  </div>
+</div>
+
+<div>
+  <ul class="list-group">
+    <li class="list-group-item"
+    *ngFor="let opt of getOptions()">{{opt}}</li>
+  </ul>
+</div>
+
