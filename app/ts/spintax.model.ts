@@ -9,7 +9,7 @@ export class Spintax {
         this.spintax = sp;
         this.elements = [];
         this.formatted_text = sp;
-        this.parseSpintax();
+        this.breakSpintax();
     }
     
     printSpintax() {
@@ -18,16 +18,17 @@ export class Spintax {
     
     updateSpintax(val:string) {
         this.spintax = val;
-        this.parseSpintax();
+        this.breakSpintax();
     }
     
     
-    parseSpintax() {
+    breakSpintax() {
         let sp = this.spintax;
         let re = /{([^{}]*)}/g;
         let m: RegExpExecArray;
         let tempEle: SpintaxElement;
         let flag = false;
+        let level = 1;
         
         while(1) {
             while ((m = re.exec(sp)) !== null) {
@@ -36,19 +37,23 @@ export class Spintax {
                     re.lastIndex++;
                 }
             
-                console.log(m);
-                tempEle = new SpintaxElement(m[0]);
+                tempEle = new SpintaxElement(m[0], level);
             
                 this.spintax = this.spintax.replace(m[0], tempEle.token);
                 this.elements.push(tempEle);  
             }
             if(flag) {
                flag = !flag;
-               sp = this.spintax; 
+               sp = this.spintax;
+               level++; 
             }
             else {
                 break;
             }
-        }     
+        }
+        
+        //TODO: Need to take care of stray words, level 0
+        
+        console.log(this.spintax);
     }
 }
