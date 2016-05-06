@@ -1,15 +1,17 @@
-import {SpintaxElement} from './spintaxElement.model'
+import {SpintaxElement} from './spintax-element.model'
 
 export class Spintax {
     public spintax: string;
     public elements: SpintaxElement[];
-    public formatted_text:string;
-    
+        
     constructor(sp:string) {
         this.spintax = sp;
         this.elements = [];
-        this.formatted_text = sp;
         this.breakSpintax();
+    }
+    
+    getElements() {
+        return this.elements.map(n => n);
     }
     
     printSpintax() {
@@ -19,6 +21,13 @@ export class Spintax {
     updateSpintax(val:string) {
         this.spintax = val;
         this.breakSpintax();
+    }
+    
+    buildSpintax() {
+        let sp = this.spintax;
+        
+        
+                        
     }
     
     
@@ -53,7 +62,6 @@ export class Spintax {
         }
         
         //TODO: Need to take care of stray words, level 0
-        
-        console.log(this.spintax);
     }
+    
 }

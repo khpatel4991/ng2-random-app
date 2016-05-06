@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Spintax } from './spintax.model'
+import { SpintaxElementComponent } from './spintax-element.component'
 
 
 @Component({
     selector: 'spintax',
-    templateUrl: 'app/ts/spintax.component.html'
+    templateUrl: 'app/ts/spintax.component.html',
+    directives: [SpintaxElementComponent]
 })
 export class SpintaxComponent implements OnInit {
     
@@ -27,8 +29,12 @@ export class SpintaxComponent implements OnInit {
     }
     
     getOptions() {
-        return this.spintaxObj.elements.map(n => JSON.stringify(n) );
+        return this.spintaxObj.getElements();
     }
+    
+    
+    
+    
 
     ngOnInit() {
         console.log('Spintax Comp Init');

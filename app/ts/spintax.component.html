@@ -10,7 +10,7 @@ cols="100" rows="10"
 </button>
 
 
-<div class="panel panel-default">
+<div class="panel panel-danger">
   <div class="panel-body">
     {{getFormattedText()}}
   </div>
@@ -20,8 +20,9 @@ cols="100" rows="10"
   <ul class="list-group">
     <li class="list-group-item"
     *ngFor="let opt of getOptions()">
-      <code>{{opt}}</code>
+      {{opt.syns}}
     </li>
   </ul>
 </div>
+<spintax-element></spintax-element>
 
