@@ -18,7 +18,7 @@
   var packages = {
     'app':                        { main: 'main.js',  defaultExtension: 'js' },
     'rxjs':                       { defaultExtension: 'js' },
-    //'ng2-ckeditor':               { defaultExtension: 'js' },
+    'ng2-ckeditor':               { defaultExtension: 'js' },
     'angular2-in-memory-web-api': { defaultExtension: 'js' },
   };
 
@@ -32,6 +32,7 @@
     '@angular/router-deprecated',
     '@angular/testing',
     '@angular/upgrade',
+    'ng2-bootstrap/tooltip'
   ];
 
   // add package entries for angular packages in the form '@angular/common': { main: 'index.js', defaultExtension: 'js' }

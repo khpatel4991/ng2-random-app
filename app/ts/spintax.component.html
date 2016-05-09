@@ -3,18 +3,37 @@
 <textarea 
 #sp_textarea
 cols="100" rows="10"
-[value]="tempSpintax"></textarea>
+[value]="userInput"></textarea>
 
 <button (click)="setSpintax(sp_textarea.value)" class="btn btn-primary">
     Try me
 </button>
 
 
-<div class="panel panel-danger">
-  <div class="panel-body">
-    {{getFormattedText()}}
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    
+    
+    
+    <span
+    *ngFor="let op of spintaxObj.elements"
+    (click)="showList($event, op)"
+    [innerHTML]="op.toString()"
+    tooltipHtml="htmltt"
+    >
+    
+    {{op.toString()}}
+    </span>
   </div>
 </div>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    {{spintaxObj.spintax}}
+  </div>
+</div>
+
+
 
 <div>
   <ul class="list-group">
@@ -24,5 +43,4 @@ cols="100" rows="10"
     </li>
   </ul>
 </div>
-<spintax-element></spintax-element>
 

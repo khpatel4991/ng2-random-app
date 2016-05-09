@@ -8,7 +8,42 @@ export class Spintax {
         this.spintax = sp;
         this.elements = [];
         this.breakSpintax();
+        //this.newTest();
     }
+    
+    newTest() {
+        let sp = this.spintax;
+        let elements: SpintaxElement[];
+        //sp.split(//g)
+        let level = 0;
+        sp.split(/\s+/g)
+            .filter((str) => str !== '')
+            .forEach((element) => {
+                element.split(/([{}\|])/g)
+                    .filter((str) => str !== '')
+                    .forEach((element) => {
+                        switch(element) {
+                            case '{':
+                                
+                                break;
+                            case '}':
+                                break;
+                            case '|':
+                                console.log(element);
+                                break;
+                            default:
+                                
+                                console.log(element + ' :default')
+                            
+                        }
+                    });
+            });
+    }
+    
+    isPunctuation(str:string) {
+        return (['.', ',', '?', '!'].indexOf(str) > -1);
+    }
+    
     
     getElements() {
         return this.elements.map(n => n);
@@ -21,13 +56,11 @@ export class Spintax {
     updateSpintax(val:string) {
         this.spintax = val;
         this.breakSpintax();
+        //this.newTest();
     }
     
     buildSpintax() {
-        let sp = this.spintax;
-        
-        
-                        
+        let sp = this.spintax;                    
     }
     
     
@@ -48,12 +81,11 @@ export class Spintax {
             
                 tempEle = new SpintaxElement(m[0], level);
             
-                this.spintax = this.spintax.replace(m[0], tempEle.token);
+                sp = sp.replace(m[0], tempEle.token);
                 this.elements.push(tempEle);  
             }
             if(flag) {
                flag = !flag;
-               sp = this.spintax;
                level++; 
             }
             else {

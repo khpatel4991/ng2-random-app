@@ -15,5 +15,23 @@ export class SpintaxElement {
         this.active = true;
         this.level = num;
         this.token = Tokenizer.getNewToken();
-    }    
+    }   
+    
+    toString() {
+        if(this.syns.length > 1) {
+            return '{' + this.syns.join('|') + '}';
+        }
+        else {
+            return this.syns.join();
+        }
+    }
+    
+    tooltipHtml() {
+        let str:string;
+        str += '<ul>'
+        this.syns.forEach((element) => str += `<li>${element}</li>`)
+        str += '</ul>'
+        console.log(str);
+    }
+     
 }

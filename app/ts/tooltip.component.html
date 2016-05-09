@@ -3,8 +3,17 @@
 (keyup.enter)="addEntry(newSp.value); newSp.value=''" >
 <button (click)="addEntry(newSp.value)">Add</button>
 <ul>
-    <li *ngFor="let sp_ele of sp_elements">
+    <li *ngFor="let sp_ele of elements">
         {{sp_ele}}
     </li>
 </ul>
 <textarea rows="4" cols="50" readonly>{{generateSpintax()}}</textarea>
+
+<div class="form-group">
+    <label>Or use custom triggers, like focus: </label>
+    <input type="text" value="Click me!" tooltip="See? Now click away..."  tooltipTrigger="click" tooltipPlacement="right" class="form-control" />
+</div>
+
+<p>
+  I can have a custom class. <a href="#" tooltip="I can have a custom class applied to me!" tooltipClass="customClass">Check me out!</a>
+</p>

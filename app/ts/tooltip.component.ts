@@ -7,12 +7,17 @@ import {Component} from '@angular/core'
 
 export class TooltipComponent {
     title = 'Tootltip';
+    public elements:string[]; 
+    constructor(syns:string[]) {
+        this.elements = syns;
+    }
+    
     sp_elements = ['yahoo', 'google', 'msft'];
     status:boolean;
     
     addEntry(newEntry:string) {
-        if (this.sp_elements.indexOf(newEntry) < 0) {
-            this.sp_elements.push(newEntry);   
+        if (this.elements.indexOf(newEntry) < 0) {
+            this.elements.push(newEntry);   
         }
     }
     generateSpintax() {
