@@ -9,17 +9,20 @@
   var map = {
     'app':                        'app', // 'dist',
     'rxjs':                       'node_modules/rxjs',
-    //'ng2-ckeditor':               'node_modules/ckeditor',
     'angular2-in-memory-web-api': 'node_modules/angular2-in-memory-web-api',
-    '@angular':                   'node_modules/@angular'
+    '@angular':                   'node_modules/@angular',
+    'moment':                     'node_modules/moment',
+    //TODO ETA May 14th, Check ng2 material
+    //'ng2-material':               'node_modules/ng2-material'
   };
 
   // packages tells the System loader how to load when no filename and/or no extension
   var packages = {
     'app':                        { main: 'main.js',  defaultExtension: 'js' },
     'rxjs':                       { defaultExtension: 'js' },
-    'ng2-ckeditor':               { defaultExtension: 'js' },
     'angular2-in-memory-web-api': { defaultExtension: 'js' },
+    'moment':                     { main: 'moment.js',  defaultExtension: 'js' },
+    //'ng2-material':               { defaultExtension: 'js' },
   };
 
   var packageNames = [
@@ -31,8 +34,7 @@
     '@angular/platform-browser-dynamic',
     '@angular/router-deprecated',
     '@angular/testing',
-    '@angular/upgrade',
-    'ng2-bootstrap/tooltip'
+    '@angular/upgrade'
   ];
 
   // add package entries for angular packages in the form '@angular/common': { main: 'index.js', defaultExtension: 'js' }
@@ -43,7 +45,7 @@
   var config = {
     map: map,
     packages: packages
-  }
+  };
 
   System.config(config);
 

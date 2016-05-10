@@ -1,0 +1,6 @@
+div.view-spintax {
+    background-color: darkgray;
+    z-index: 1000000;
+    font-family: Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+    font-size: larger;
+}

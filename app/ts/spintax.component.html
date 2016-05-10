@@ -1,46 +1,61 @@
-<h3>Spintax Component</h3>
+<div class="container">
 
-<textarea 
-#sp_textarea
-cols="100" rows="10"
-[value]="userInput"></textarea>
+  <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">Spintax Component</div>
+    <div class="panel-body"></div>
 
-<button (click)="setSpintax(sp_textarea.value)" class="btn btn-primary">
-    Try me
-</button>
+    <div class="container">
+      <div class="row">
+          <!--TODO Summernote here Later-->
+          <textarea
+            #sp_textarea
+            cols="100" rows="10"
+            [value]="userInput"></textarea>
+      </div>
 
-
-<div class="row">
-  <div class="col-md-8 col-md-offset-2">
-    
-    
-    
-    <span
-    *ngFor="let op of spintaxObj.elements"
-    (click)="showList($event, op)"
-    [innerHTML]="op.toString()"
-    tooltipHtml="htmltt"
-    >
-    
-    {{op.toString()}}
-    </span>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    {{spintaxObj.spintax}}
+      <div class="row">
+          <button (click)="setSpintax(sp_textarea.value)" class="btn btn-primary">
+              Refresh
+          </button>
+      </div>
+    </div>
   </div>
 </div>
 
 
 
-<div>
-  <ul class="list-group">
-    <li class="list-group-item"
-    *ngFor="let opt of getOptions()">
-      {{opt.syns}}
-    </li>
-  </ul>
-</div>
+  <div class="row">
+
+  </div>
+
+
+  <div class="row view-spintax">
+    <div class="col-md-8 col-md-offset-2">
+
+      <span
+      *ngFor="let op of spintaxObj.elements"
+      (click)="showTooltip(op)"
+      >
+
+      <tooltip-d [element]="selectedEle" *ngIf="showT"></tooltip-d>
+      {{op.toString()}}
+      </span>
+    </div>
+  </div>
+
+  <div class="row">
+    <!-- TODO: Clean out this File -->
+  </div>
+
+
+
+  <div>
+    <ul class="list-group">
+      <li class="list-group-item"
+      *ngFor="let opt of getOptions()">
+        {{opt.syns}}
+      </li>
+    </ul>
+  </div>
 
